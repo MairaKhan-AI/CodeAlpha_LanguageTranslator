@@ -1,29 +1,36 @@
 from deep_translator import GoogleTranslator
 
-print("===== Language Translator =====")
+# Decorative line
+line = "=" * 50
 
-name = input("Enter your name: ")
-print(f"\nWelcome, {name}!")
+print(line)
+print("      🌍 LANGUAGE TRANSLATOR 🌍")
+print(line)
+
+name = input("\nEnter your name: ").strip()
+
+print(f"\nWelcome, {name}! 👋")
 
 while True:
 
     source = input("\nEnter source language: ").lower().strip()
     target = input("Enter target language: ").lower().strip()
-    text = input("Enter text to translate: ")
+    text = input("Enter text to translate: ").strip()
 
     try:
+
         translated = GoogleTranslator(
             source=source,
             target=target
         ).translate(text)
 
-        print("\n" + "=" * 50)
-        print("          LANGUAGE TRANSLATOR")
-        print("=" * 50)
+        print("\n" + line)
+        print("          TRANSLATION RESULT")
+        print(line)
 
-        print(f"\nUser: {name}")
-        print(f"Source Language: {source}")
-        print(f"Target Language: {target}")
+        print(f"\n👤 User: {name}")
+        print(f"🌐 Source Language : {source}")
+        print(f"🎯 Target Language : {target}")
 
         print("\nOriginal Text")
         print("-" * 30)
@@ -33,13 +40,13 @@ while True:
         print("-" * 30)
         print(translated)
 
-        print("=" * 50)
+        print(line)
 
     except Exception:
-        print("\nInvalid language code or internet connection problem.")
+        print("\n❌ Invalid language or internet connection problem.")
 
     choice = input("\nTranslate another sentence? (yes/no): ").lower().strip()
 
     if choice in ["no", "n"]:
-        print(f"\nThank you for using the Language Translator, {name}!")
+        print(f"\n👋 Thank you for using the Language Translator, {name}!")
         break
