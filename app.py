@@ -1,52 +1,61 @@
+import streamlit as st
 from deep_translator import GoogleTranslator
+from translator import LANGUAGES
 
-# Decorative line
-line = "=" * 50
+st.title("🌍 Language Translator")
+st.caption("Translate text between multiple languages instantly.")
 
-print(line)
-print("      🌍 LANGUAGE TRANSLATOR 🌍")
-print(line)
+# Name input
+name = st.text_input("Enter your name")
+if name:
+    st.write(f"Welcome, {name}! 👋")
 
-name = input("\nEnter your name: ").strip()
+# Language selection
+source = st.selectbox("Source Language", list(LANGUAGES.keys()))
+target = st.selectbox("Target Language", list(LANGUAGES.keys()))
 
-print(f"\nWelcome, {name}! 👋")
+# Text input
+text = st.text_area("Enter text", placeholder="Type something to translate...")
 
-while True:
+# Buttons
+col1, col2 = st.columns(2)
+translate_btn = col1.button("🔄 Translate")
 
-    source = input("\nEnter source language: ").lower().strip()
-    target = input("Enter target language: ").lower().strip()
-    text = input("Enter text to translate: ").strip()
+if translate_btn:
+    if not name.strip():
+        st.warning("Please enter your name.")
+    elif not text.strip():
+        st.warning("⚠️ Please enter text to translate.")
+    elif source == target:
+        st.warning("⚠️ Source and target languages cannot be the same.")
+    else:
+        try:
+            with st.spinner("Translating..."):
+                translated = GoogleTranslator(
+                    source=LANGUAGES[source], target=LANGUAGES[target]
+                ).translate(text)
 
-    try:
+            st.success("Translation completed successfully!")
+            st.subheader("✅ Translation Result")
+            with st.container():
+                st.markdown(f"**👤 User:** {name}")
+                st.markdown(f"**🌐 Source Language:** {source}")
+                st.markdown(f"**🎯 Target Language:** {target}")
 
-        translated = GoogleTranslator(
-            source=source,
-            target=target
-        ).translate(text)
+                st.write("**Original Text**")
+                st.write(text)
 
-        print("\n" + line)
-        print("          TRANSLATION RESULT")
-        print(line)
+                st.write("**Translated Text**")
+                st.divider()
+                st.text_area(
+                    "Translated Text", translated, height=100, key="translated"
+                )
 
-        print(f"\n👤 User: {name}")
-        print(f"🌐 Source Language : {source}")
-        print(f"🎯 Target Language : {target}")
+        except Exception:
+            st.error(
+                "Translation failed. Please check your internet connection or selected language."
+            )
 
-        print("\nOriginal Text")
-        print("-" * 30)
-        print(text)
+st.divider()
 
-        print("\nTranslated Text")
-        print("-" * 30)
-        print(translated)
-
-        print(line)
-
-    except Exception:
-        print("\n❌ Invalid language or internet connection problem.")
-
-    choice = input("\nTranslate another sentence? (yes/no): ").lower().strip()
-
-    if choice in ["no", "n"]:
-        print(f"\n👋 Thank you for using the Language Translator, {name}!")
-        break
+st.caption("Developed by Maira Khan • CodeAlpha AI Internship 2026")

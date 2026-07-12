@@ -1,8 +1,7 @@
 # 🌍 Language Translator
+> 🌍 Translate text between multiple languages instantly with a simple Streamlit interface.
 
-A multilingual text translation application built with Streamlit and Python.
-
-A simple and user-friendly language translation web application built with **Python** and **Streamlit** as part of the **CodeAlpha AI Internship 2026**.
+A simple and user-friendly multilingual text translation web application built with **Python** and **Streamlit** as part of the **CodeAlpha AI Internship 2026**. It uses the **deep-translator** library to translate text between multiple languages through Google Translate.
 
 The application allows users to translate text between multiple languages using the `deep-translator` library and Google's translation service.
 
@@ -26,11 +25,13 @@ The application allows users to translate text between multiple languages using 
 
 - Python
 - Streamlit
-- deep-translator
+- Deep Translator
 - Git
 - GitHub
 
 ---
+
+## Badges
 
 ![Python](https://img.shields.io/badge/Python-3-blue)
 
@@ -45,8 +46,8 @@ The application allows users to translate text between multiple languages using 
 ```
 Language-Translator/
 │
-├── app.py                 # Main Streamlit application
-├── translator.py          # Language dictionary
+├── app.py
+├── translator.py
 ├── requirements.txt
 ├── README.md
 └── LT_screenshots/
@@ -60,13 +61,13 @@ Language-Translator/
 Clone the repository:
 
 ```bash
-git clone https://github.com/MairaKhan-AI/Language-Translator
+git clone https://github.com/MairaKhan-AI/Language-Translator.git
 ```
 
 Move into the project folder:
 
 ```bash
-cd language-translator
+cd Language-Translator
 ```
 
 Install the required packages:
@@ -103,26 +104,24 @@ streamlit run app.py
 
 ---
 
-## 📸 Screenshots
+## 📸 Application Preview
 
-### Application Interface
-
-![Application Interface](LT_screenshots/app.png)
+![Language Translator](LT_screenshots/app.png)
 
 ---
 
 ## 🎯 Learning Outcomes
 
-During this project I learned:
+During this project, I learned:
 
-- Building web applications using Streamlit
-- Working with translation APIs through `deep-translator`
-- Designing interactive user interfaces
-- Handling user input and validation
-- Exception handling in Python
+- Building interactive web applications with Streamlit
+- Using translation APIs through the `deep-translator` library
+- Designing user-friendly interfaces
+- Validating user input
+- Handling exceptions in Python
 - Organizing Python projects
 - Managing project dependencies using `requirements.txt`
-- Creating and documenting GitHub projects
+- Creating and documenting GitHub repositories
 
 ---
 
@@ -138,4 +137,4 @@ CodeAlpha AI Internship 2026
 
 ## 📄 License
 
-This project was developed for educational purposes as part of the CodeAlpha AI Internship.
+This project was developed as part of the CodeAlpha AI Internship 2026 for educational and learning purposes.

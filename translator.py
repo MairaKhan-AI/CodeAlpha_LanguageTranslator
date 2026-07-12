@@ -1,0 +1,17 @@
+LANGUAGES = {
+    "Arabic": "ar",
+    "Chinese": "zh-CN",
+    "English": "en",
+    "French": "fr",
+    "German": "de",
+    "Hindi": "hi",
+    "Italian": "it",
+    "Japanese": "ja",
+    "Korean": "ko",
+    "Pashto": "ps",
+    "Punjabi": "pa",
+    "Spanish": "es",
+    "Turkish": "tr",
+    "Urdu": "ur",
+    "Yoruba": "yo",
+}
